@@ -1,0 +1,84 @@
+app.component.html
+<h1>{{title}}</h1>
+<label>Enter your name: </label>
+<input type="text" #name placeholder="Enter Your Name" name="Name">
+<label>Enter your address: </label>
+<input type="text" #address placeholder="Enter Your Address" name="Address">
+<label>Enter your contact number: </label>
+<input type="text" #contact placeholder="Enter Your Contact" name="Contact">
+<label>Enter your email: </label>
+<input type="email" #email placeholder="Enter Your Email" name="Email">
+<label>Enter your password: </label>
+<input type="password" #password placeholder="Enter Your Password" name="password">
+<button (click)="getValue(name.value,address.value,contact.value,email.value)">Register</button>
+
+<h1>Your Register Data</h1><br>
+<p>Name:{{displayname}}</p>
+<p>Address:{{displayaddress}}</p>
+<p>Contact:{{displaycontact}}</p>
+<p>Email:{{displayemail}}</p>
+
+app.component.ts
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']})
+export class AppComponent {
+  title = 'pr2cc';
+  displayname='';
+  displayaddress=''
+  displaycontact='';
+  displayemail='';
+  getValue(name:string,address:string,contact:string,email:string){
+    this.displayname=name;
+    this.displayaddress=address;
+    this.displaycontact=contact;
+    this.displayemail=email; }}
+
+app.component.css
+input{
+    width:400px;
+    height:25px;
+    margin:10px;
+    padding:5px;
+}
+Login_form.component.html
+<h1>{{title}}</h1>
+<label>Enter your user name: </label>
+<input type="text" #username placeholder="Enter Your Name" name="Name"><br>
+<label>Enter your password: </label>
+<input type="password" #password1 placeholder="Enter Your Password" name="password">
+<br><br><button (click)="getValue(username.value)">Login</button>
+<h1>Your Login Data</h1>
+<p>Name:{{displayusername}}</p>
+
+Login_form.component.css
+input{
+    width:400px;
+    height:25px;
+    margin:10px;
+    padding:5px;
+}
+
+Login_form.component.ts
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
+})
+export class LoginFormComponent {
+  title = 'Login form';
+  displayusername='';
+  
+  getValue(username:string){
+    this.displayusername=username;}
+}
+
+
+
+
+
+
+
